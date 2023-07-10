@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+      <handlers>
+            <add name="httpplatformHandler" path="*" verb="*" modules="httpPlatformHandler" scriptProcessor="C:\Program Files\Java\jdk1.8.0_212\bin\java.exe" resourceType="Unspecified" requireAccess="Script" />
+      </handlers>
+      <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Djetty.http.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;C:\inetpub\wwwroot\javasites\jetty&quot; -jar &quot;C:\inetpub\wwwroot\javasites\jetty\start.jar&quot;" startupTimeLimit="50" startupRetryCount="50" stdoutLogEnabled="true"></httpPlatform>
+        <directoryBrowse enabled="true" />
+        <tracing>
+            <traceFailedRequests>
+                <!-- <add path="*">
+                    <traceAreas>
+                        <add provider="ASP" verbosity="Verbose" />
+                        <add provider="ASPNET" areas="Infrastructure,Module,Page,AppServices" verbosity="Verbose" />
+                        <add provider="ISAPI Extension" verbosity="Verbose" />
+                        <add provider="WWW Server" areas="Authentication,Security,Filter,StaticFile,CGI,Compression,Cache,RequestNotifications,Module,FastCGI,WebSocket" verbosity="Verbose" />
+                    </traceAreas>
+                    <failureDefinitions statusCodes="100-600" />
+                </add> -->
+            </traceFailedRequests>
+        </tracing>
+    </system.webServer>
+    <system.web>
+        <identity impersonate="false" />
+    </system.web>
+</configuration>
+
+<!-- <?xml version="1.0"?>
+<configuration>
+    <system.webServer>
+      <handlers>
+        <add name="httpplatformhandler" path="*" verb="*" modules ="httpPlatformHandler" resourceType="Unspecified"/>
+      </handlers>
+      <httpPlatform processPath="C:\Program Files\Java\jdk1.8.0_212\bin\java.exe" 
+                    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;C:\inetpub\wwwroot\javasites\jetty&quot; -jar &quot;C:\inetpub\wwwroot\javasites\jetty\start.jar&quot;" 
+                    startupTimeLimit="20" 
+                    startupRetryCount="20" 
+                    stdoutLogEnabled="true"></httpPlatform>
+    </system.webServer>
+</configuration> -->
